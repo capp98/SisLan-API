@@ -15,12 +15,12 @@ app.use(
 );
 
 app.get('/', (request, response) => {
-  response.json({ info: 'Node.js, Express, and Postgres API' });
+  response.json({ info: 'API for SisLan' });
 });
 
-app.get('/users', db.getServices);
-app.get('/chars/:nome', (req, res) => {
-  db.getServicesBy(req, res, req.params.nome);
+app.get('/services', db.getServices);
+app.get('/services/:servico', (req, res) => {
+  db.getServicesBy(req, res, req.params.servico);
 });
 
 app.listen(port, () => {

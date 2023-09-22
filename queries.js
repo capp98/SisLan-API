@@ -20,7 +20,7 @@ const getServices = (request, response) => {
 const getServicesBy = (request, response, servico) => {
   pool.query(
     'SELECT * FROM servicos where servico = $1',
-    servico,
+    [servico],
     (error, results) => {
       if (error) {
         throw error;
