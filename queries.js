@@ -9,7 +9,7 @@ const pool = new Pool({
 });
 
 const getServices = (request, response) => {
-  pool.query('SELECT * FROM servicos ORDER BY nome ASC', (error, results) => {
+  pool.query('SELECT * FROM servicos ORDER BY nome', (error, results) => {
     if (error) {
       throw error;
     }
@@ -19,7 +19,7 @@ const getServices = (request, response) => {
 
 const getServicesBy = (request, response, servico) => {
   pool.query(
-    'SELECT * FROM servicos where servico = $1 order by asc',
+    'SELECT * FROM servicos where servico = $1 order by nome',
     [servico],
     (error, results) => {
       if (error) {
