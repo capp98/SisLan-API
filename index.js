@@ -23,6 +23,11 @@ app.get('/services/:servico', (req, res) => {
   db.getServicesBy(req, res, req.params.servico);
 });
 
+app.get('/downloadDocument/:name', (req, res) => {
+  const file = `${__dirname}/documents/${req.params.name}.docx`;
+  res.download(file); // Set disposition and send it.
+});
+
 app.listen(port, () => {
   console.log(`App running on port ${port}.`);
 });
